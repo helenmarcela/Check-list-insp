@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checklist App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <section id="auth-screen" class="screen active">
+        <div class="auth-card">
+          <div class="auth-header">
+            <div class="brand-badge">CI</div>
+            <h1>Checklist Insp</h1>
+            <p>Gerencie seus checklists de forma simples e segura.</p>
+          </div>
+
+          <div class="auth-switch">
+            <button class="tab-button active" data-auth-tab="login" type="button">Login</button>
+            <button class="tab-button" data-auth-tab="register" type="button">Cadastro</button>
+          </div>
+
+          <form id="login-form" class="auth-form">
+            <label>
+              E-mail
+              <input type="email" id="login-email" placeholder="seu@email.com" required />
+            </label>
+            <label>
+              Senha
+              <input type="password" id="login-password" placeholder="••••••••" required />
+            </label>
+            <button type="submit" class="primary-btn">Entrar</button>
+          </form>
+
+          <div class="demo-login">
+            <p><strong>Acesso de teste</strong><br />teste@checklist.local<br />Senha: Teste123!</p>
+            <button id="demo-login-button" class="secondary-btn" type="button">Entrar com conta de teste</button>
+          </div>
+
+          <form id="register-form" class="auth-form hidden">
+            <label>
+              Nome
+              <input type="text" id="register-name" placeholder="Seu nome" required />
+            </label>
+            <label>
+              E-mail
+              <input type="email" id="register-email" placeholder="seu@email.com" required />
+            </label>
+            <label>
+              Senha
+              <input type="password" id="register-password" placeholder="Mínimo 6 caracteres" minlength="6" required />
+            </label>
+            <button type="submit" class="primary-btn">Cadastrar</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="dashboard-screen" class="screen hidden">
+        <header class="topbar">
+          <div class="brand-block">
+            <span class="brand-mark">CI</span>
+            <span class="brand">Checklist Insp</span>
+          </div>
+          <div class="user-block">
+            <span id="current-user-email">Usuário</span>
+            <button id="theme-toggle" class="secondary-btn theme-toggle" type="button" aria-label="Ativar tema escuro">Tema escuro</button>
+            <button id="logout-button" class="secondary-btn" type="button">Sair</button>
+          </div>
+        </header>
+
+        <main class="main-container">
+          <section class="toolbar">
+            <label class="search-box">
+              <span>Pesquisar</span>
+              <input id="search-input" type="search" placeholder="Buscar checklist pelo nome" />
+            </label>
+            <button id="new-checklist-button" class="primary-btn" type="button">Novo checklist</button>
+          </section>
+
+          <section id="stats-cards" class="stats-cards"></section>
+
+          <div class="content-grid">
+            <section class="panel list-panel">
+              <div class="panel-header">
+                <h2>Checklists</h2>
+              </div>
+              <div id="checklist-list" class="checklist-list"></div>
+            </section>
+
+            <aside class="panel detail-panel">
+              <div id="checklist-detail"></div>
+            </aside>
+          </div>
+        </main>
+      </section>
+    </div>
+
+    <div id="toast" class="toast" aria-live="polite"></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
